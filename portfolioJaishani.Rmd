@@ -1,0 +1,141 @@
+---
+title: "From Fela Kuti to Burna Boy: The Evolution of AfroBeat"
+output: 
+  flexdashboard::flex_dashboard:
+    theme: journal
+    orientation: columns
+    vertical_layout: fill
+    
+    
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(tidymodels)
+library(plotly)
+library(heatmaply)
+library(protoclust)
+library(cowplot)
+library(spotifyr)
+library(compmus)
+
+```
+
+
+Introduction 
+=========================================
+
+Column {data-width=800}
+-------------------------------------
+
+Over the past few years, there has been a growing interest in the emergence of a contemporary genre known as Afrofusion ( also referred to as “Afrobeats”) that entered the global discourse for the first time in the early 2010s. Afrofusion can be considered a fusion of traditional Afrobeat, such as Nigerian highlife and Ghanaian hiplife, with elements of Western pop, hip-hop, and R&B. This blend creates a vibrant and energetic sound, characterized by the use of percussive instruments like the djembe, shekere, and talking drum, alongside electronic elements like synthesizers and drum machines, creating music with a faster tempo and high danceability. Artists like Burna Boy, WizKid, and Davido are at the forefront of this genre, blending their cultural heritage with contemporary influences to showcase the richness and diversity of African music to the world. The success of Afrobeats has empowered it to impact popular music in different parts of the world, leading to collaborations with mainstream artists like Beyonce, Drake, and Ed Sheeran. It has also led to an increase in African music festivals and concerts, providing a platform for African artists to showcase their talent to a global audience.
+The roots of Afrofusion can be traced back to the 1970s when Fela Kuti created the Afrobeat genre in Nigeria. It was a fusion of traditional African rhythms, jazz, funk, and highlife music, with socially conscious lyrics that addressed political issues and corruption in Nigeria. This music was expressed by complex polyrhythmic percussion, horns, and electric guitars, creating a sound with both high energy and danceability.
+This corpus will study the transformation and coexistence of the Afrobeat genre over time with the now prominent Afrofusion/Afrobeats music by studying the audio features and in depth analysis the Spotify API provides. 
+
+
+Column {data-width=200}
+-------------------------------------
+
+
+###
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0nHJwDKzBrDBK46dfkfUI7?utm_source=generator" width="100%" height="352" data-external="1" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+###
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4DSMGS0xzzI7lYJZ7JoO2h?utm_source=generator" width="100%" height="352" data-external="1" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+Visualization {.storyboard}
+========================================
+
+### Chromogram 
+
+
+```{r}
+FetakuliChart
+YeChart
+```
+
+
+
+-----------------------------------------
+
+
+
+randin text1
+
+
+### SSM
+
+```{r}
+KulosaChart
+ESChart
+```
+
+
+
+-----------------------------------------
+
+
+
+randin text1
+
+
+
+### Tempogram
+```{r}
+LetsstartChart
+WondamoChart
+```
+
+
+
+
+-----------------------------------------
+
+
+
+randin text1
+
+
+
+### Dendogram
+```{r}
+Dendogram
+```
+
+
+-----------------------------------------
+
+
+
+randin text1
+
+
+### Chordogram
+```{r}
+ZombieChart
+SomethingChart
+```
+
+
+-----------------------------------------------------------------------
+
+
+ss
+
+### Track Level Summary 
+
+```{r}
+jazzChart
+```
+
+
+-----------------------------------------------------------------------
+
+
+ssssss
+
+Discussion 
+=========================================
+sdadsa
