@@ -37,7 +37,7 @@ expensiveshit |>
   theme_classic()
 
 ESChart <- expensiveshit |>
-  compmus_self_similarity(pitches, "cosine") |> 
+  compmus_self_similarity(timbre, "cosine") |> 
   ggplot(
     aes(
       x = xstart + xduration / 2,
