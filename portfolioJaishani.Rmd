@@ -48,60 +48,59 @@ Column {data-width=200}
 Visualization {.storyboard}
 ========================================
 
-### Chromogram 
+### Dendrogram 
 
 
+```{r}
+Dendogram
+```
+
+
+
+-----------------------------------------
+
+
+
+randin text1
+
+
+### Track Level Summary 
+
+```{r}
+jazzChart
+```
+
+
+
+-----------------------------------------
+
+
+
+randin text1
+
+
+
+### Tempogram  {data-height=600}
+```{r}
+LetsstartChart 
+WondamoChart 
+```
+
+
+
+
+-----------------------------------------
+
+
+
+randin text1
+
+
+
+### Chromogram
 ```{r}
 FetakuliChart
 YeChart
-```
-
-
-
------------------------------------------
-
-
-
-randin text1
-
-
-### SSM
-
-```{r}
-KulosaChart
-ESChart
-```
-
-
-
------------------------------------------
-
-
-
-randin text1
-
-
-
-### Tempogram
-```{r}
-LetsstartChart
-WondamoChart
-```
-
-
-
-
------------------------------------------
-
-
-
-randin text1
-
-
-
-### Dendogram
-```{r}
-Dendogram
 ```
 
 
@@ -124,10 +123,11 @@ SomethingChart
 
 ss
 
-### Track Level Summary 
+### Self Similarity Matrices
 
 ```{r}
-jazzChart
+KulosaChart
+ESChart
 ```
 
 
