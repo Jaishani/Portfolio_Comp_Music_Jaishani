@@ -80,7 +80,7 @@ randin text1
 
 
 
-### Tempogram  {data-height=600}
+### Tempogram 
 ```{r}
 LetsstartChart 
 WondamoChart 
