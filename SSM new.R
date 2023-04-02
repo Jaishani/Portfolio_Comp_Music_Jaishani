@@ -2,42 +2,35 @@ library(tidyverse)
 library(spotifyr)
 library(compmus)
 
-kulosa <-
-  get_tidy_audio_analysis("2WigMwGJysIh9fRnSJvpjn") |> # Change URI.
-  compmus_align(bars, segments) |>                     # Change `bars`
-  select(bars) |>                                      #   in all three
-  unnest(bars) |>                                      #   of these lines.
+
+kulosa2 <-
+  get_tidy_audio_analysis("2WigMwGJysIh9fRnSJvpjn") |>
+  compmus_align(bars, segments) |>
+  select(bars) |>
+  unnest(bars) |>
   mutate(
     pitches =
       map(segments,
           compmus_summarise, pitches,
-          method = "rms", norm = "euclidean"              # Change summary & norm.
+          method = "acentre", norm = "manhattan"
       )
   ) |>
   mutate(
     timbre =
       map(segments,
           compmus_summarise, timbre,
-          method = "rms", norm = "euclidean"              # Change summary & norm.
+          method = "mean"
       )
   )
-kulosa |>
-  compmus_gather_timbre() |>
-  ggplot(
-    aes(
-      x = start + duration / 2,
-      width = duration,
-      y = basis,
-      fill = value
-    )
-  ) +
-  geom_tile() +
-  labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
-  scale_fill_viridis_c() +                              
-  theme_classic()
-
-KulosaChart <- kulosa |>
-  compmus_self_similarity(timbre, "cosine") |> 
+KulosaChart2 <- bind_rows(
+  kulosa2 |> 
+    compmus_self_similarity(pitches, "aitchison") |> 
+    mutate(d = d / max(d), type = "Chroma"),
+  kulosa2 |> 
+    compmus_self_similarity(timbre, "euclidean") |> 
+    mutate(d = d / max(d), type = "Timbre")
+) |>
+  mutate() |> 
   ggplot(
     aes(
       x = xstart + xduration / 2,
@@ -49,6 +42,7 @@ KulosaChart <- kulosa |>
   ) +
   geom_tile() +
   coord_fixed() +
-  scale_fill_viridis_c(guide = "none") +
-  theme_classic() +
-  labs(x = "", y = "") + ggtitle("Ku Lo Sa - A COLORS SHOW by Oxlade")
+  facet_wrap(~type) +
+  scale_fill_viridis_c(option = "C", guide = "none") +
+  theme_classic() + 
+  labs(x = "", y = "") + ggtitle("Ku Lo Sa by Oxlade")

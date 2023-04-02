@@ -2,7 +2,7 @@
 library(tidymodels)
 library(ggdendro)
 
-Afrobeat <- get_playlist_audio_features("31s4gl3lbbpum3bhi4dq3w53zlwe", "0nHJwDKzBrDBK46dfkfUI7")
+Afrobeat <- get_playlist_audio_features("31s4gl3lbbpum3bhi4dq3w53zlwe", "2EHPmAGzuUxKZ5lhB3XyIZ")
 Afrofusion <- get_playlist_audio_features("31s4gl3lbbpum3bhi4dq3w53zlwe", "4DSMGS0xzzI7lYJZ7JoO2h")
 
 afromusic <-
@@ -64,7 +64,7 @@ data_for_afromusic_clustering$labels <- data_for_afromusic_clustering$labels %>%
 # Add factor so can use colouring! 
 data_for_afromusic_clustering$labels$label <- factor(data_for_afromusic_clustering$labels$label)
 
-Dendogram <- data_for_afromusic_clustering |>
+Dendrogram <- data_for_afromusic_clustering |>
   ggdendrogram() +
   geom_text(data = label(data_for_afromusic_clustering), aes(x, y, 
                                                          label=label, 

@@ -15,8 +15,8 @@ afroold <- get_playlist_audio_features(
   add_audio_analysis()
 
 tracksummary <- afronew |>
-  mutate(genre = "AfroNew") |>
-  bind_rows(afroold |> mutate(genre = "AfroOld"))
+  mutate(genre = "Afrofusion") |>
+  bind_rows(afroold |> mutate(genre = "Afrobeat"))
 
 jazzChart <- tracksummary |>
   mutate(energy = as.integer(energy*10)) |>
@@ -46,5 +46,5 @@ jazzChart <- tracksummary |>
     y = "SD Tempo",
     colour = "Genre",
     size = "Energy",
-    alpha = "Volume (dBFS)"
-  ) + ggtitle('Track level analysis for Afrobeat and Afrofusion playlists')
+    alpha = "Loudness (dBFS)"
+  ) + ggtitle('Track level analysis of Afrobeat and Afrofusion')
