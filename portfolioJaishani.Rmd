@@ -24,14 +24,18 @@ library(ggpubr)
 ```
 
 
-Introduction 
+Wheres the Inspiration from? 
 =========================================
 
 Column {data-width=800}
 -------------------------------------
 
 Over the past few years, there has been a growing interest in the emergence of a contemporary genre known as Afrofusion ( also referred to as “Afrobeats”) that entered the global discourse for the first time in the early 2010s. Afrofusion can be considered a fusion of traditional Afrobeat, such as Nigerian highlife and Ghanaian hiplife, with elements of Western pop, hip-hop, and R&B. This blend creates a vibrant and energetic sound, characterized by the use of percussive instruments like the djembe, shekere, and talking drum, alongside electronic elements like synthesizers and drum machines, creating music with a faster tempo and high danceability. Artists like Burna Boy, WizKid, and Davido are at the forefront of this genre, blending their cultural heritage with contemporary influences to showcase the richness and diversity of African music to the world. The success of Afrobeats has empowered it to impact popular music in different parts of the world, leading to collaborations with mainstream artists like Beyonce, Drake, and Ed Sheeran. It has also led to an increase in African music festivals and concerts, providing a platform for African artists to showcase their talent to a global audience.
+
+
 The roots of Afrofusion can be traced back to the 1970s when Fela Kuti created the Afrobeat genre in Nigeria. It was a fusion of traditional African rhythms, jazz, funk, and highlife music, with socially conscious lyrics that addressed political issues and corruption in Nigeria. This music was expressed by complex polyrhythmic percussion, horns, and electric guitars, creating a sound with both high energy and danceability.
+
+
 This corpus will study the transformation and coexistence of the Afrobeat genre over time with the now prominent Afrofusion/Afrobeats music by studying the audio features and in depth analysis the Spotify API provides. 
 
 
@@ -47,7 +51,7 @@ Column {data-width=300}
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4DSMGS0xzzI7lYJZ7JoO2h?utm_source=generator" width="100%" height="352" data-external="1" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-Visualization {.storyboard}
+How are we going to study this? {.storyboard}
 ========================================
 
 ### Dendrogram 
@@ -124,9 +128,6 @@ Another notable difference between the chromograms of "Water No Get Enemy" and "
 -----------------------------------------
 
 
-randin text1
-
-
 ### SSM
 ```{r}
 
@@ -147,6 +148,20 @@ Comparing the self-similarity matrices for "Expensive Shit" by Fela Kuti and "Ku
 Overall, the self-similarity matrices for "Expensive Shit" and "Ku Lo Sa" reveal different musical characteristics that reflect the distinct styles and influences of Fela Kuti and Oxlade. Fela Kuti's music is known for its complex harmonies and polyrhythmic structures, while Oxlade's music is more focused on catchy melodies and contemporary pop sounds.
 
 
-Discussion 
+What can we conclude? 
 =========================================
-sdadsa
+When considering all the visualizations analyzed these main discussion points can be drawn:
+
+Tempo: Both Afrobeat and Afrofusion music have a focus on a consistent and high-energy tempo. However, the mean tempo for Afrofusion tracks is more consistent and clustered around 100 BPM, while Afrobeat tracks have a wider range of mean tempo from 80-140 BPM.
+
+Tonality: Both genres make use of a variety of tonalities, but Afrobeat tends to have a stronger focus on traditional African harmonic structures, while Afrofusion incorporates more Western-influenced tonalities.
+
+Instrumentation: Afrobeat tends to feature more live instrumentation and improvisation, while afrofusion often incorporates more production-heavy elements and electronic instrumentation.
+
+Harmony and chord progressions: Afrobeat and Afrofusion make use of similar harmonic structures and chord progressions, with a focus on simple yet effective harmonic patterns.
+
+Energy and dynamics: Both genres feature high levels of energy and dynamics, with frequent changes in volume and intensity throughout a song.
+
+Production quality: Afrofusion tends to have a higher production quality, with a focus on polished and polished sound design, while afrobeat often has a more raw and unpolished sound.
+
+Inconclusion, it seems that while there are some distinct differences between Afrobeat and Afrofusion music, there is also significant overlap in terms of music structural analysis.The differences lie more in the production and instrumentation choices rather than the underlying musical structures, and both draw on a rich history of African musical traditions.
