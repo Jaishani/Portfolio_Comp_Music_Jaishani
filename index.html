@@ -1,0 +1,167 @@
+---
+title: "From Fela Kuti to Burna Boy: The Evolution of AfroBeat"
+output: 
+  flexdashboard::flex_dashboard:
+    theme: journal
+    orientation: columns
+    vertical_layout: fill
+    
+    
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(tidymodels)
+library(plotly)
+library(heatmaply)
+library(protoclust)
+library(cowplot)
+library(spotifyr)
+library(compmus)
+library(gridExtra)
+library(ggpubr)
+
+```
+
+
+Wheres the Inspiration from? 
+=========================================
+
+Column {data-width=800}
+-------------------------------------
+
+Over the past few years, there has been a growing interest in the emergence of a contemporary genre known as Afrofusion ( also referred to as “Afrobeats”) that entered the global discourse for the first time in the early 2010s. Afrofusion can be considered a fusion of traditional Afrobeat, such as Nigerian highlife and Ghanaian hiplife, with elements of Western pop, hip-hop, and R&B. This blend creates a vibrant and energetic sound, characterized by the use of percussive instruments like the djembe, shekere, and talking drum, alongside electronic elements like synthesizers and drum machines, creating music with a faster tempo and high danceability. Artists like Burna Boy, WizKid, and Davido are at the forefront of this genre, blending their cultural heritage with contemporary influences to showcase the richness and diversity of African music to the world. The success of Afrobeats has empowered it to impact popular music in different parts of the world, leading to collaborations with mainstream artists like Beyonce, Drake, and Ed Sheeran. It has also led to an increase in African music festivals and concerts, providing a platform for African artists to showcase their talent to a global audience.
+
+
+The roots of Afrofusion can be traced back to the 1970s when Fela Kuti created the Afrobeat genre in Nigeria. It was a fusion of traditional African rhythms, jazz, funk, and highlife music, with socially conscious lyrics that addressed political issues and corruption in Nigeria. This music was expressed by complex polyrhythmic percussion, horns, and electric guitars, creating a sound with both high energy and danceability.
+
+
+This corpus will study the transformation and coexistence of the Afrobeat genre over time with the now prominent Afrofusion/Afrobeats music by studying the audio features and in depth analysis the Spotify API provides. 
+
+
+Column {data-width=300}
+-------------------------------------
+
+
+###
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2EHPmAGzuUxKZ5lhB3XyIZ?utm_source=generator" width="100%" height="352" data-external="1" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+###
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4DSMGS0xzzI7lYJZ7JoO2h?utm_source=generator" width="100%" height="352" data-external="1" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+How are we going to study this? {.storyboard}
+========================================
+
+### Dendrogram 
+
+
+```{r}
+Dendogram
+```
+
+
+
+-----------------------------------------
+
+The dendrogram presented provides a starting point for a comprehensive analysis of the interplay between Afrobeat and Afrofusion in the music industry. Initial expectations of the two playlists clustering together more distinctly were not met. While Afrobeat was more instrumental and Afrofusion was more production-heavy, the dendrogram shows a frequent overlap between the two playlists, indicating similarity in musical characteristics. Notably, two Afrofusion songs were grouped with 12 Fela Kuti songs, raising questions about the basis for clustering. This portfolio aims to address this question by comparing selected songs from popular artists in the genre. It is interesting to note that Ayra Starr, who is gaining global recognition for her Nigerian-rooted music, is grouped with Fela Kuti songs, compared to other Afrofusion artists such as Burna Boy who blend Afrobeat with Dancehall, Reggae, and R&B. Through this analysis, we hope to gain a deeper understanding of the relationship between Afrobeat and Afrofusion and their impact on the music industry. 
+
+
+### Track Level Summary 
+
+```{r}
+jazzChart
+```
+
+
+
+-----------------------------------------
+
+
+
+A track-level summary can be a powerful tool in analyzing two playlists, as it allows us to examine patterns and differences at a more detailed level. I focused on three main features: tempo, energy, and volume, which are defined by the Spotify API. Energy measures the intensity and activity of a song on a scale of 0.0 to 1.0, while loudness measures the psychological strength of a sound in decibels. Tempo refers to the speed of a song in beats per minute (BPM).
+
+After looking at the data, it becomes clear that Afrofusion tracks tend to have a consistent mean tempo of 100 BPM, with a low standard deviation (SD) tempo. In contrast, the mean tempo of Afrobeat tracks varies between 80-140 BPM, with a higher SD tempo ranging from 1-5. A low SD tempo indicates a more cohesive and consistent mood, while a high SD tempo suggests a dynamic and varied playlist. 
+Both playlists exhibit varied energy levels, maintaining a minimum of 6. 
+Loudness in the Afrofusion playlist is relatively constant between -10 and -6 dBFS, whereas the Afrobeat playlist has a more diverse range of loudness measures throughout.
+
+
+
+
+### Tempogram 
+```{r}
+grid.arrange(LetsstartChart, WondamoChart, nrow = 2)
+
+```
+
+
+
+
+-----------------------------------------
+
+
+The tempogram for "Let's Start" by Fela Kuti shows a complex and varied rhythm in the opening 20 seconds  of the song, with spread out areas of yellow indicating changes in tempo and rhythmic patterns. This is a common characteristic of Afrobeat music, which is the genre that Fela Kuti is known for pioneering. Afrobeat,  as I’ve mentioned before, is a genre with complex and polyrhythmic structures that often feature multiple percussion instruments. From 20 seconds to 450 seconds, the tempogram shows a very clear straight line at around 100 bpm, indicating a consistent and steady tempo throughout the majority of the song. This is a hallmark of Afrobeat, which often features long, extended grooves that build and develop over time. The repetitive, driving rhythms of Afrobeat are designed to be danceable and create a hypnotic effect on the listener.
+The tempogram for "Won Da Mo" by Rema shows a clear, steady tempo from the start of the song, with a straight yellow line that indicates a consistent beat at around 120 bpm. However, in the last 60 seconds of the song, the yellow areas on the tempogram become more diffused, causing the straight line to disappear. This may be due to the violin instrumentals that come in. Te tempo detection algorithm could be struggling to detect the beat accurately when there is less rhythmic consistency and more emphasis on melody and harmony. The violin may also contribute to a more fluid and free-flowing sense of rhythm, which can be harder to capture with a tempo detection algorithm.
+Comparing the tempogram for "Let's Start" by Fela Kuti and "Won Da Mo" by Rema, we can see that both songs feature a steady beat and rhythm in their opening sections, but differ in their use of tempo and rhythmic complexity. "Let's Start" features a more complex and varied rhythm, with spread out areas of yellow indicating changes in tempo and rhythmic patterns. This is typical of Afrobeat music, which is known for its complex polyrhythmic structures. "Won Da Mo," on the other hand, features a more straightforward beat with a steady tempo, which is typical of Afrofusion music. However, the more diffused areas of yellow later in the song suggest that the violin instrumental in the latter part of the song adds a layer of melodic complexity.
+
+
+
+### Chromogram
+
+```{r}
+grid.arrange(FetakuliChart, YeChart, nrow = 2)
+
+```
+
+
+-----------------------------------------
+
+
+
+Firstly, Water Get No Enemy by Fela Kuti employs a wide range of harmonies, as shown by the use of almost the entire chromatic scale. This suggests a high degree of harmonic complexity and experimentation, which is characteristic of Fela Kuti's style of music. Secondly, the key of the song is B flat minor, which is evident from the prevalence of notes such as Bb, C#, and Eb in the chromagram. The use of minor tonality also contributes to the song's overall mood, which is often characterized as somber or melancholic. Thirdly, there are several points in the chromagram where certain notes are emphasized more than others. For example, there are spikes in the frequency of G and C# notes, particularly in the middle of the song. This could indicate the use of specific chord progressions or melodic motifs in these sections.
+In comparison, the song "Ye" by Burna Boy has a relatively simple harmonic structure compared to the chromagram of "Water No Get Enemy" by Fela Kuti. The key of the song being in F minor is also reflected in the chromagram, with the majority of notes falling within the F minor scale.One interesting observation is that the song predominantly uses the notes F, A-flat, and C, which are the first, third, and fifth notes of the F minor scale, respectively. This suggests that the song's chord progression is likely built around the F minor chord, with occasional use of other chords in the F minor scale. Another notable aspect of the chromagram is the presence of higher frequency notes, particularly in the latter half of the song. This would be because of he high pitched solo that is the only sound present in the last part of the song.
+Another notable difference between the chromograms of "Water No Get Enemy" and "Ye" is the range of notes used in each song. While "Water No Get Enemy" utilizes almost the entire harmonic scale, "Ye" has a much narrower range of notes. Additionally, there are differences in the distribution of notes across the frequency spectrum. "Water No Get Enemy" has a more uniform distribution of notes across the spectrum, while "Ye" has more prominent peaks in certain frequency ranges. This is likely because "Ye" is a more modern production and may be more focused on a specific set of sounds and melodies.
+
+
+
+-----------------------------------------
+
+
+### SSM
+```{r}
+
+grid.arrange(ESChart2, KulosaChart2, nrow = 2)
+
+```
+
+
+-----------------------------------------------------------------------
+
+
+Regarding the chroma self-similarity matrix, we can observe that the song "Expensive Shit" has a strong and consistent chromatic profile. The diagonal of the matrix shows that there are many moments in the song where the chromatic content is similar to previous moments in the song. This suggests that the song's melody and chord progression are relatively stable and repetitive. The off-diagonal blocks in the chroma matrix show sections of the song where the chromatic content is not the same as the content in the surrounding sections. These changes could indicate different sections of the song with different melodies, chord progressions, or harmonic structures. In contrast, the timbre self-similarity matrix shows that the song's timbral content varies more across time than its chroma content. The diagonal of the matrix still shows some self-similarity, but there are also many off-diagonal blocks that indicate significant changes in the timbral characteristics of the song. These changes could be related to different instruments or instrumental combinations used throughout the song or changes in sound effects, such as reverb or distortion.
+
+ "Ku Lo Sa" by Oxlade has a chroma self-similarity matrix that reveals a stable harmonic structure with many repeating patterns, indicating that the song relies on a repetitive chord progression and melody. The off-diagonal blocks in the matrix suggest that there are moments of the song where the chromatic content is different from the surrounding sections, which could indicate different sections of the song with different melodies or chord progressions. The timbre self-similarity matrix shows more variation in the song's timbral content, indicating that the song incorporates different instruments, vocal styles, or sound effects. 
+
+Comparing the self-similarity matrices for "Expensive Shit" by Fela Kuti and "Ku Lo Sa" by Oxlade, we can see some similarities and differences in the musical characteristics of the two songs. In terms of chroma self-similarity, both songs exhibit diagonal lines indicating a stable and repetitive harmonic structure. However, the chroma self-similarity matrix for "Expensive Shit" appears to have more off-diagonal blocks than the matrix for "Ku Lo Sa", indicating a higher level of harmonic variation in "Expensive Shit". This could be due to Fela Kuti's use of complex chord progressions and improvisation techniques in his music, which often featured extended solos and intricate interplay between instruments. The timbre self-similarity matrix for "Expensive Shit" shows more variation in timbral content compared to the matrix for "Ku Lo Sa". This could be due to the use of a wider range of instruments and sounds in Fela Kuti's music, which often included horns, keyboards, and percussion instruments. In contrast, "Ku Lo Sa" is more focused on synths, guitars, and percussion instruments.
+
+Overall, the self-similarity matrices for "Expensive Shit" and "Ku Lo Sa" reveal different musical characteristics that reflect the distinct styles and influences of Fela Kuti and Oxlade. Fela Kuti's music is known for its complex harmonies and polyrhythmic structures, while Oxlade's music is more focused on catchy melodies and contemporary pop sounds.
+
+
+What can we conclude? 
+=========================================
+When considering all the visualizations analyzed these main discussion points can be drawn:
+
+Tempo: Both Afrobeat and Afrofusion music have a focus on a consistent and high-energy tempo. However, the mean tempo for Afrofusion tracks is more consistent and clustered around 100 BPM, while Afrobeat tracks have a wider range of mean tempo from 80-140 BPM.
+
+Tonality: Both genres make use of a variety of tonalities, but Afrobeat tends to have a stronger focus on traditional African harmonic structures, while Afrofusion incorporates more Western-influenced tonalities.
+
+Instrumentation: Afrobeat tends to feature more live instrumentation and improvisation, while afrofusion often incorporates more production-heavy elements and electronic instrumentation.
+
+Harmony and chord progressions: Afrobeat and Afrofusion make use of similar harmonic structures and chord progressions, with a focus on simple yet effective harmonic patterns.
+
+Energy and dynamics: Both genres feature high levels of energy and dynamics, with frequent changes in volume and intensity throughout a song.
+
+Production quality: Afrofusion tends to have a higher production quality, with a focus on polished and polished sound design, while afrobeat often has a more raw and unpolished sound.
+
+Inconclusion, it seems that while there are some distinct differences between Afrobeat and Afrofusion music, there is also significant overlap in terms of music structural analysis.The differences lie more in the production and instrumentation choices rather than the underlying musical structures, and both draw on a rich history of African musical traditions. 
