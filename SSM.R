@@ -45,3 +45,9 @@ library(compmus)
    scale_fill_viridis_c(option = "C", guide = "none") +
    theme_classic() + 
    labs(x = "", y = "") + ggtitle("Expensive Shit by Fela Kuti")
+ 
+ 
+ 
+ 
+
+ 
