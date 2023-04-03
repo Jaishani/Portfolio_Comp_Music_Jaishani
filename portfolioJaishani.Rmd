@@ -39,7 +39,7 @@ The roots of Afrofusion can be traced back to the 1970s when Fela Kuti created t
 This corpus will study the transformation and coexistence of the Afrobeat genre over time with the now prominent Afrofusion/Afrobeats music by studying the audio features and in depth analysis the Spotify API provides. 
 
 
-Column {data-width=300}
+Column {data-width=200}
 -------------------------------------
 
 
